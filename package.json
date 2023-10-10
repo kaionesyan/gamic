@@ -2,6 +2,7 @@
   "name": "gamic",
   "private": true,
   "devDependencies": {
-    "git-commit-msg-linter": "^5.0.4"
+    "git-commit-msg-linter": "^5.0.4",
+    "typescript": "^5.2.2"
   }
 }
