@@ -1,6 +1,9 @@
 {
   "name": "gamic",
   "private": true,
+  "scripts": {
+    "test": "vitest"
+  },
   "devDependencies": {
     "@rocketseat/eslint-config": "^2.1.0",
     "@types/node": "^20.8.4",
