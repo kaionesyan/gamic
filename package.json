@@ -1,8 +1,6 @@
 {
   "name": "gamic",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
+  "private": true,
   "devDependencies": {
     "git-commit-msg-linter": "^5.0.4"
   }
