@@ -2,18 +2,18 @@ import { randomUUID } from 'node:crypto'
 import { BaseValueObject } from './base.value-object'
 
 export interface EntityIdProps {
-  id: string
+  value: string
 }
 
 export class EntityId extends BaseValueObject<EntityIdProps> {
-  get id(): string {
-    return this.props.id
+  get value(): string {
+    return this.props.value
   }
 
   static create(value?: string): EntityId {
     if (!value) {
       return new EntityId({
-        id: randomUUID(),
+        value: randomUUID(),
       })
     }
 
@@ -26,7 +26,7 @@ export class EntityId extends BaseValueObject<EntityIdProps> {
     }
 
     return new EntityId({
-      id: value,
+      value,
     })
   }
 }
