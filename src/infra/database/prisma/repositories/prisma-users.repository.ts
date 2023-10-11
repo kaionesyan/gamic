@@ -44,19 +44,4 @@ export class PrismaUsersRepository implements UsersRepository {
       },
     })
   }
-
-  async save(user: User): Promise<void> {
-    await this.prismaService.user.update({
-      where: { id: user.id.value },
-      data: {
-        email: user.email,
-        passwordHash: user.passwordHash,
-        gamerTag: user.gamerTag.value,
-      },
-    })
-  }
-
-  async delete(user: User): Promise<void> {
-    await this.prismaService.user.delete({ where: { id: user.id.value } })
-  }
 }

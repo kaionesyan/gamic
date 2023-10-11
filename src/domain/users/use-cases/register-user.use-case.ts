@@ -1,10 +1,10 @@
 import { DomainError } from '@/domain/shared/errors/domain.error'
-import { Result } from '@/domain/shared/types/result'
 import { User } from '../entities/user.entity'
 import { HashService } from '@/domain/shared/services/hash/hash.service'
 import { UsersRepository } from '../repositories/users/users.repository'
 import { GamerTag } from '../entities/gamer-tag.value-object'
 import { Injectable } from '@nestjs/common'
+import { Result } from '@/core/types/result'
 
 type Request = {
   email: string
