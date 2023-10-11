@@ -1,10 +1,11 @@
 import { BaseEntity } from '@/domain/shared/entities/base.entity'
 import { EntityId } from '@/domain/shared/entities/entity-id.value-object'
+import { GamerTag } from './gamer-tag.value-object'
 
 export interface UserProps {
   email: string
   passwordHash: string
-  gamerTag: string
+  gamerTag: GamerTag
 }
 
 export class User extends BaseEntity<UserProps> {
@@ -24,11 +25,11 @@ export class User extends BaseEntity<UserProps> {
     this.props.passwordHash = value
   }
 
-  get gamerTag(): string {
+  get gamerTag(): GamerTag {
     return this.props.gamerTag
   }
 
-  set gamerTag(value: string) {
+  set gamerTag(value: GamerTag) {
     this.props.gamerTag = value
   }
 
