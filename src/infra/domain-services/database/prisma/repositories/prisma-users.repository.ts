@@ -4,11 +4,12 @@ import { PrismaDatabaseService } from '../prisma.service'
 import { User } from '@/domain/users/entities/user.entity'
 import { GamerTag } from '@/domain/users/entities/gamer-tag.value-object'
 import { PrismaClient } from '@prisma/client'
+import { DatabaseService } from '@/domain/shared/services/database/database.service'
 
 @Injectable()
 export class PrismaUsersRepository implements UsersRepository {
-  constructor(prismaService: PrismaDatabaseService) {
-    this.client = prismaService.client
+  constructor(prismaService: DatabaseService) {
+    this.client = (prismaService as PrismaDatabaseService).client
   }
 
   private client: PrismaClient

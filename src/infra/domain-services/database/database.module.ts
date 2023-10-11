@@ -15,6 +15,6 @@ import { DatabaseService } from '@/domain/shared/services/database/database.serv
       useClass: PrismaUsersRepository,
     },
   ],
-  exports: [UsersRepository],
+  exports: [DatabaseService, UsersRepository],
 })
 export class DatabaseModule {}
