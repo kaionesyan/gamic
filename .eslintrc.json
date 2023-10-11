@@ -1,6 +1,7 @@
 {
   "extends": ["@rocketseat/eslint-config/node"],
   "rules": {
-    "@typescript-eslint/explicit-function-return-type": "error"
+    "@typescript-eslint/explicit-function-return-type": "error",
+    "@typescript-eslint/no-namespace": "off"
   }
 }
