@@ -16,5 +16,9 @@
     "unplugin-swc": "^1.4.3",
     "vite-tsconfig-paths": "^4.2.1",
     "vitest": "^0.34.6"
+  },
+  "dependencies": {
+    "@nestjs/common": "^10.2.7",
+    "@nestjs/core": "^10.2.7"
   }
 }
