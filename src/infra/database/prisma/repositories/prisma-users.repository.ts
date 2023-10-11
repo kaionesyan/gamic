@@ -1,15 +1,22 @@
 import { UsersRepository } from '@/domain/users/repositories/users/users.repository'
 import { Injectable } from '@nestjs/common'
-import { PrismaService } from '../prisma.service'
+import { PrismaDatabaseService } from '../prisma.service'
 import { User } from '@/domain/users/entities/user.entity'
 import { GamerTag } from '@/domain/users/entities/gamer-tag.value-object'
+import { PrismaClient } from '@prisma/client'
 
 @Injectable()
 export class PrismaUsersRepository implements UsersRepository {
-  constructor(private prismaService: PrismaService) {}
+  constructor(prismaService: PrismaDatabaseService) {
+    this.client = prismaService.client
+  }
+
+  private client: PrismaClient
 
   async findByEmail(email: string): Promise<User | null> {
-    const user = await this.prismaService.user.findUnique({ where: { email } })
+    const user = await this.client.user.findUnique({
+      where: { email },
+    })
 
     if (!user) return null
 
@@ -21,7 +28,7 @@ export class PrismaUsersRepository implements UsersRepository {
   }
 
   async findByGamerTag(gamerTag: string): Promise<User | null> {
-    const user = await this.prismaService.user.findUnique({
+    const user = await this.client.user.findUnique({
       where: { gamerTag },
     })
 
@@ -35,7 +42,7 @@ export class PrismaUsersRepository implements UsersRepository {
   }
 
   async create(user: User): Promise<void> {
-    await this.prismaService.user.create({
+    await this.client.user.create({
       data: {
         id: user.id.value,
         email: user.email,
