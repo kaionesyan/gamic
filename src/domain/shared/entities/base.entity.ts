@@ -8,9 +8,9 @@ export abstract class BaseEntity<T> {
     return this._id
   }
 
-  protected constructor(props: T, id?: string) {
+  protected constructor(props: T, id?: EntityId) {
     this.props = props
-    this._id = id ? EntityId.create(id) : EntityId.create()
+    this._id = id ?? EntityId.create()
   }
 
   public equals(entity: BaseEntity<T>): boolean {
