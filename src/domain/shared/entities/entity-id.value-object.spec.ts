@@ -16,13 +16,7 @@ describe('Entity Id Value Object', () => {
   })
 
   it('should throw when creating an entity id from an invalid string', async () => {
-    const createInvalidEntityId = async (): Promise<EntityId> => {
-      return EntityId.create('invalid id')
-    }
-
-    await expect(createInvalidEntityId).rejects.toEqual(
-      new Error('Invalid UUID'),
-    )
+    expect(() => EntityId.create('invalid id')).toThrowError('Invalid UUID')
   })
 
   it('should correctly compare identical entity ids', () => {

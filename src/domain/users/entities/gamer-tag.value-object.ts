@@ -13,7 +13,7 @@ export class GamerTag extends BaseValueObject<GamerTagProps> {
     const isValid = value.match(/^[a-zA-Z]{4,12}$/i)
 
     if (!isValid) {
-      throw new Error('Invalid GamerTag')
+      throw new Error('Invalid Gamer Tag')
     }
 
     return new GamerTag({
