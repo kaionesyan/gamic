@@ -15,7 +15,7 @@ describe('Entity Id Value Object', () => {
     expect(entityId.value).toBe(idString)
   })
 
-  it('should throw when creating an entity id from an invalid string', async () => {
+  it('should throw when creating an entity id from an invalid string', () => {
     expect(() => EntityId.create('invalid id')).toThrowError('Invalid UUID')
   })
 
