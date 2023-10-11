@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common'
 import { ConfigModule } from '@nestjs/config'
 import { envSchema } from './env/env'
 import { EnvModule } from './env/env.module'
-import { UsersModule } from './subdomains/users/users.module'
+import { HttpModule } from './http/http.module'
 
 @Module({
   imports: [
@@ -11,7 +11,7 @@ import { UsersModule } from './subdomains/users/users.module'
       isGlobal: true,
     }),
     EnvModule,
-    UsersModule,
+    HttpModule,
   ],
 })
 export class AppModule {}

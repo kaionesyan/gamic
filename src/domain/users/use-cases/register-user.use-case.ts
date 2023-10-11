@@ -4,6 +4,7 @@ import { User } from '../entities/user.entity'
 import { HashService } from '@/domain/shared/services/hash/hash.service'
 import { UsersRepository } from '../repositories/users/users.repository'
 import { GamerTag } from '../entities/gamer-tag.value-object'
+import { Injectable } from '@nestjs/common'
 
 type Request = {
   email: string
@@ -13,6 +14,7 @@ type Request = {
 
 type Response = Result<DomainError, { user: User }>
 
+@Injectable()
 export class RegisterUserUseCase {
   constructor(
     private usersRepository: UsersRepository,
@@ -39,6 +41,8 @@ export class RegisterUserUseCase {
       passwordHash: this.hashService.hash(password),
       gamerTag: GamerTag.create(gamerTag),
     })
+
+    await this.usersRepository.create(user)
 
     return Result.ok({ user })
   }
